@@ -26,6 +26,7 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:unicorn/recommended",
+        "plugin:eslint-plugin/recommended",
     ],
     "parser": "typescript-eslint-parser",
     "parserOptions": {
@@ -37,6 +38,7 @@ module.exports = {
         "typescript",
         "import",
         "tslint",
+        "eslint-plugin",
     ],
     "rules": {
         "no-undef": 0,

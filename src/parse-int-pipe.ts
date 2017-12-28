@@ -3,8 +3,8 @@ export const message = {
     transformed: 'Redundant coercing to number, parameter `{{name}}` must be a number',
 };
 export const parseIntPipe = {
-    create: function(context): any {
-        const parameters: { name: string, transformed: boolean }[] = [];
+    create(context): any {
+        const parameters: Array<{ name: string, transformed: boolean }> = [];
         const isOurParameter = (argument) => parameters.some(p => p.name === argument.name);
         const reportMessage = (argument) => {
             const p = parameters.find(p => p.name === argument.name);
@@ -32,7 +32,9 @@ export const parseIntPipe = {
                 }
             },
             FunctionExpression: (node) => {
-                if (!Array.isArray(node.params)) return;
+                if (!Array.isArray(node.params)) {
+                    return;
+                }
                 node.params.forEach(param => {
                     const decorator = getParamDecorator(param);
                     if (decorator) {
@@ -40,7 +42,7 @@ export const parseIntPipe = {
                     }
                 });
             }
-        }
+        };
     }
 };
 
@@ -55,10 +57,18 @@ function hasNewParseIntPipe(decorator) {
 
 function isCoersingToNumber(node: { callee?: any, prefix?: any, operator?: any }) {
     if (node.callee) {
-        if (node.callee.name === 'parseInt') return true;
-        if (node.callee.name === 'Number') return true;
-        if (node.callee.object && node.callee.object.name === 'Number' && node.callee.property.name === 'parseInt') return true;
+        if (node.callee.name === 'parseInt') {
+            return true;
+        }
+        if (node.callee.name === 'Number') {
+            return true;
+        }
+        if (node.callee.object && node.callee.object.name === 'Number' && node.callee.property.name === 'parseInt') {
+            return true;
+        }
     }
-    if (node.operator === '+' && node.prefix === true) return true;
+    if (node.operator === '+' && node.prefix === true) {
+        return true;
+    }
     return false;
 }

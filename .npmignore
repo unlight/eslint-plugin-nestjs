@@ -1,0 +1,12 @@
+# .gitignore
+/node_modules
+/.idea
+/.awcache
+/.vscode
+/.nyc_output
+*.log
+~*
+# .npmignore
+/tsconfig.json
+/.eslintrc.js
+/.editorconfig

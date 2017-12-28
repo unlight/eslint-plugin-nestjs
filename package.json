@@ -1,0 +1,91 @@
+{
+  "name": "node-package-starter",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Describe your project",
+  "main": "lib/index.js",
+  "typings": "src/index.ts",
+  "scripts": {
+    "t": "npm run mocha -- src/*.spec.ts",
+    "test": "npm run eslint && npm run tscheck && npm run t",
+    "test:r": "npm run mocha -- src/*.spec.ts",
+    "mocha": "node -r ts-node/register node_modules/mocha/bin/_mocha",
+    "test:w": "npm run mocha -- --watch-extensions ts --watch src/**/*.spec.ts",
+    "test:d": "node --inspect-brk -r ts-node/register node_modules/mocha/bin/_mocha --no-timeouts src/**/*.spec.ts",
+    "tscheck": "echo tscheck... && tsc --noEmit",
+    "tscheck:w": "npm run tscheck -- --watch",
+    "tsclint": "tsc --noEmit --pretty false --strictNullChecks --forceConsistentCasingInFileNames --noImplicitReturns --noImplicitThis --noUnusedLocals --noUnusedParameters",
+    "tsclint:w": "npm run tsclint -- --watch",
+    "eslint": "eslint src --ext ts",
+    "eslint:fix": "eslint src --ext \"ts\" --fix",
+    "eslint:w": "chokidar \"src/**/*.ts\" --initial -c \"npm run eslint\"",
+    "lint:w": "concurrently -- \"npm run tsclint:w\" \"npm run eslint:w\"",
+    "build": "tsc",
+    "clean": "rimraf lib",
+    "prebuild": "npm run clean",
+    "release": "npm run test && standard-version",
+    "release:undo": "git reset --hard HEAD~ -- && node -p \"let {execSync: x} = require('child_process'); `${x(`git tag -d ${x(`git for-each-ref refs/tags --sort=-taggerdate --format=%(refname:short) --count=1`)}`)}`\"",
+    "prepublishOnly": "npm run build",
+    "semantic-release": "semantic-release",
+    "setup": "npm i -g commitizen standard-version semantic-release-cli",
+    "commit": "git-cz"
+  },
+  "dependencies": {
+    "tslib": "^1.8.1"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^1.0.0",
+    "@semantic-release/git": "^2.0.1",
+    "@semantic-release/npm": "^2.5.0",
+    "@types/mocha": "^2.2.45",
+    "@types/node": "^8.5.2",
+    "chokidar-cli": "^1.2.0",
+    "concurrently": "^3.5.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^4.13.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-tslint": "^2.1.0",
+    "eslint-plugin-typescript": "^0.8.1",
+    "eslint-plugin-unicorn": "^3.0.1",
+    "mocha": "^4.0.1",
+    "rimraf": "^2.6.2",
+    "semantic-release": "^11.0.2",
+    "ts-node": "^4.1.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2",
+    "typescript-eslint-parser": "^11.0.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "engines": {
+    "npm": ">=3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unlight/node-package-starter.git"
+  },
+  "keywords": [
+    "starter"
+  ],
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/git",
+      "@semantic-release/npm"
+    ],
+    "publish": [
+      {
+        "path": "@semantic-release/changelog",
+        "changelogFile": "CHANGELOG.md"
+      },
+      "@semantic-release/git",
+      "@semantic-release/npm"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

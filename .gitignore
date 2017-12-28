@@ -1,0 +1,8 @@
+/node_modules
+/.idea
+/.awcache
+/.vscode
+/.nyc_output
+*.log
+~*
+/lib/

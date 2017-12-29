@@ -1,4 +1,4 @@
-# eslint-plugin-nest
+# eslint-plugin-nestjs
 ESLint rules for [nestjs](https://github.com/nestjs/nest) framework
 
 ## INSTALL

@@ -4,60 +4,63 @@ export const message = {
 };
 export const parseIntPipe = {
     create(context): any {
-        const parameters: Array<{ name: string, transformed: boolean }> = [];
-        const isOurParameter = (argument) => parameters.some(p => p.name === argument.name);
-        const reportMessage = (argument) => {
-            const p = parameters.find(p => p.name === argument.name);
-            if (p.transformed) {
-                context.report(argument, message.transformed, { name: p.name });
+        const parameters: Array<{ name: string, decorator: any }> = [];
+        const checkAndReport = (argument) => {
+            const param = parameters.find(p => p.name === argument.name);
+            if (!param) {
+                return;
+            }
+            if (param.decorator.transformed) {
+                context.report(argument, message.transformed, { name: param.name });
             } else {
                 context.report(argument, message.prefer);
             }
         };
         return {
             CallExpression: (node) => {
-                if (isCoersingToNumber(node)) {
+                if (isCoercingToNumber(node)) {
                     const [argument] = node.arguments;
-                    if (isOurParameter(argument)) {
-                        context.report({ node, message: message.prefer, data: {} });
-                    }
+                    checkAndReport(argument);
                 }
             },
             UnaryExpression: (node) => {
-                if (isCoersingToNumber(node)) {
-                    const argument = node.argument;
-                    if (isOurParameter(argument)) {
-                        reportMessage(argument);
-                    }
+                if (isCoercingToNumber(node)) {
+                    checkAndReport(node.argument);
                 }
             },
             FunctionExpression: (node) => {
                 if (!Array.isArray(node.params)) {
                     return;
                 }
-                node.params.forEach(param => {
-                    const decorator = getParamDecorator(param);
-                    if (decorator) {
-                        parameters.push({ name: param.name, transformed: hasNewParseIntPipe(decorator) });
-                    }
-                });
+                (node.params as any[])
+                    .map(param => ({ param, decorator: getDecorator(param) }))
+                    .filter(x => x.decorator)
+                    .forEach(({ param, decorator }) => {
+                        parameters.push({ name: param.name, decorator });
+                    });
             }
         };
     }
 };
 
-function getParamDecorator(node) {
-    return (node.decorators || []).find(d => d.expression && d.expression.callee && d.expression.callee.name === 'Param');
+function getDecorator(node) {
+    const decorator = (node.decorators || []).find(d => d.expression && d.expression.callee && d.expression.callee.name === 'Param');
+    if (!decorator) {
+        return;
+    }
+    const [, expr] = decorator.expression.arguments;
+    return {
+        transformed: Boolean(expr && expr.type === 'NewExpression' && expr.callee && expr.callee.name === 'ParseIntPipe'),
+    };
 }
 
-function hasNewParseIntPipe(decorator) {
-    const [, d] = decorator.expression.arguments;
-    return Boolean(d && d.type === 'NewExpression' && d.callee && d.callee.name === 'ParseIntPipe');
-}
-
-function isCoersingToNumber(node: { callee?: any, prefix?: any, operator?: any }) {
+function isCoercingToNumber(node: { callee?: any, prefix?: any, operator?: any, arguments?: any[] }) {
     if (node.callee) {
         if (node.callee.name === 'parseInt') {
+            // const [, radix] = node.arguments;
+            // if (radix && radix.type === 'Literal' && radix.value !== 10) {
+            //     return false;
+            // }
             return true;
         }
         if (node.callee.name === 'Number') {

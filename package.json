@@ -1,8 +1,8 @@
 {
-  "name": "node-package-starter",
+  "name": "eslint-plugin-nestjs",
   "version": "0.0.0",
   "license": "MIT",
-  "description": "Describe your project",
+  "description": "ESLint rules for nestjs framework",
   "main": "lib/index.js",
   "typings": "src/index.ts",
   "scripts": {
@@ -57,17 +57,14 @@
     "typescript-eslint-parser": "^11.0.0"
   },
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "doc": "docs"
   },
   "engines": {
     "npm": ">=3"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/unlight/node-package-starter.git"
-  },
   "keywords": [
-    "starter"
+    "eslint-plugin"
   ],
   "release": {
     "verifyConditions": [
@@ -88,5 +85,13 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unlight/eslint-plugin-nestjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unlight/eslint-plugin-nestjs/issues"
+  },
+  "homepage": "https://github.com/unlight/eslint-plugin-nestjs#readme"
 }

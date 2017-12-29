@@ -1,8 +1,8 @@
 {
-  "name": "node-package-starter",
+  "name": "eslint-plugin-nestjs",
   "version": "0.0.0",
   "license": "MIT",
-  "description": "Describe your project",
+  "description": "ESLint rules for nestjs framework",
   "main": "lib/index.js",
   "typings": "src/index.ts",
   "scripts": {
@@ -23,8 +23,6 @@
     "build": "tsc",
     "clean": "rimraf lib",
     "prebuild": "npm run clean",
-    "release": "npm run test && standard-version",
-    "release:undo": "git reset --hard HEAD~ -- && node -p \"let {execSync: x} = require('child_process'); `${x(`git tag -d ${x(`git for-each-ref refs/tags --sort=-taggerdate --format=%(refname:short) --count=1`)}`)}`\"",
     "prepublishOnly": "npm run build",
     "semantic-release": "semantic-release",
     "setup": "npm i -g commitizen standard-version semantic-release-cli",
@@ -42,13 +40,13 @@
     "chokidar-cli": "^1.2.0",
     "concurrently": "^3.5.1",
     "cz-conventional-changelog": "^2.1.0",
-    "eslint": "^4.13.1",
+    "eslint": "^4.14.0",
     "eslint-plugin-eslint-plugin": "^1.2.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-tslint": "^2.1.0",
     "eslint-plugin-typescript": "^0.8.1",
     "eslint-plugin-unicorn": "^3.0.1",
-    "mocha": "^4.0.1",
+    "mocha": "^4.1.0",
     "rimraf": "^2.6.2",
     "semantic-release": "^11.0.2",
     "ts-node": "^4.1.0",
@@ -57,17 +55,14 @@
     "typescript-eslint-parser": "^11.0.0"
   },
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "doc": "docs"
   },
   "engines": {
     "npm": ">=3"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/unlight/node-package-starter.git"
-  },
   "keywords": [
-    "starter"
+    "eslint-plugin"
   ],
   "release": {
     "verifyConditions": [
@@ -88,5 +83,13 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unlight/eslint-plugin-nestjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unlight/eslint-plugin-nestjs/issues"
+  },
+  "homepage": "https://github.com/unlight/eslint-plugin-nestjs#readme"
 }

@@ -6,7 +6,7 @@
   "main": "lib/index.js",
   "typings": "src/index.ts",
   "scripts": {
-    "t": "npm run mocha -- src/*.spec.ts",
+    "t": "npm run mocha -- src/**/*.spec.ts",
     "test": "npm run eslint && npm run tscheck && npm run t",
     "test:r": "npm run mocha -- src/*.spec.ts",
     "mocha": "node -r ts-node/register node_modules/mocha/bin/_mocha",

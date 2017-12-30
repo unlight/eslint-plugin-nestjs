@@ -1,3 +1,16 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/unlight/eslint-plugin-nestjs/compare/v1.0.0...v1.1.0) (2017-12-30)
+
+
+### Bug Fixes
+
+* **package:** Fixed path to spec files ([4c6c396](https://github.com/unlight/eslint-plugin-nestjs/commit/4c6c396))
+
+
+### Features
+
+* **use-dependency-injection:** New rule ([b60f787](https://github.com/unlight/eslint-plugin-nestjs/commit/b60f787))
+
 <a name="1.0.0"></a>
 # 1.0.0 (2017-12-29)
 

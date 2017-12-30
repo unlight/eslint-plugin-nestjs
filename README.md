@@ -19,8 +19,8 @@ plugin:nestjs/recommended
 3. [Configure rules](https://eslint.org/docs/user-guide/configuring#configuring-rules)
 
 ## RULES
-* [nestjs/parse-int-pipe](docs/rules/parse-int-pipe.md) — Usage of transform pipe `ParseIntPipe` for `@Param()` decorator
-* [nestjs/deprecated-api-modules](docs/rules/deprecated-api-modules.md) — Disallow usage of the deprecated api (import modules)
+* [nestjs/parse-int-pipe](src/parse-int-pipe/parse-int-pipe.md) — Usage of transform pipe `ParseIntPipe` for `@Param()` decorator
+* [nestjs/deprecated-api-modules](src/deprecated-api-modules/deprecated-api-modules.md) — Disallow usage of the deprecated api (import modules)
 
 ## TODO
 * rule: use dependency injection instead of require

@@ -1,5 +1,5 @@
-import { parseIntPipe } from './parse-int-pipe';
-import { deprecatedApiModules } from './deprecated-api-modules';
+import { parseIntPipe } from './parse-int-pipe/parse-int-pipe';
+import { deprecatedApiModules } from './deprecated-api-modules/deprecated-api-modules';
 
 export const rules = {
     'parse-int-pipe': parseIntPipe,

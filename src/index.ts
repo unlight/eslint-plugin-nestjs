@@ -11,9 +11,9 @@ export const rules = {
 export const configs = {
     recommended: {
         rules: {
-            'parse-int-pipe': 1,
-            'deprecated-api-modules': 1,
-            'use-dependency-injection': 1,
+            'nestjs/parse-int-pipe': 1,
+            'nestjs/deprecated-api-modules': 1,
+            'nestjs/use-dependency-injection': 1,
         }
     }
 };

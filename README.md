@@ -21,7 +21,7 @@ plugin:nestjs/recommended
 ## RULES
 * [nestjs/parse-int-pipe](src/parse-int-pipe/parse-int-pipe.md) — Usage of transform pipe `ParseIntPipe` for `@Param()` decorator
 * [nestjs/deprecated-api-modules](src/deprecated-api-modules/deprecated-api-modules.md) — Disallow usage of the deprecated api (import modules)
-* [nestjs/use-dependency-injection](src/use-dependency-injection.md) — Stick dependency inversion principle, the dependencies are provided through a class constructor
+* [nestjs/use-dependency-injection](src/use-dependency-injection/use-dependency-injection.md) — Dpendencies must be provided through a class constructor
 
 ## TODO
 * rule: inject @Res() but not using send or json

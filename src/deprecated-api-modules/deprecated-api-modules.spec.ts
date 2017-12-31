@@ -13,7 +13,7 @@ RuleTester.setDefaultConfig({
 
 ruleTester.run('deprecated-api-modules', deprecatedApiModules, {
     invalid: [
-        { code: `@Module({ modules: [DatabaseModule] }) export class CatModule { }`, errors: [{ message }] },
+        { code: `@Module({ modules: [DatabaseModule] }) export class CatModule { }`, errors: [{ message, column: 11 }] },
     ],
     valid: [
         { code: `@Module({ imports: [DatabaseModule] }) export class CatModule { }`, errors: [{}] },

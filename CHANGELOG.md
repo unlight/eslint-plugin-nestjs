@@ -1,3 +1,11 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/unlight/eslint-plugin-nestjs/compare/v1.1.0...v1.1.1) (2017-12-31)
+
+
+### Bug Fixes
+
+* **configs:** Fixed recomended config rules ([2a989c3](https://github.com/unlight/eslint-plugin-nestjs/commit/2a989c3))
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/unlight/eslint-plugin-nestjs/compare/v1.0.0...v1.1.0) (2017-12-30)
 

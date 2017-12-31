@@ -1,5 +1,5 @@
 # Enforce using Dependency Injection (use-dependency-injection)
-Stick dependency inversion principle, the dependencies are provided through a class constructor.
+Stick dependency inversion principle, the dependencies must be provided through a class constructor.
 
 ## Rule Details
 

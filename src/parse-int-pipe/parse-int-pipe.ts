@@ -1,7 +1,11 @@
+import { getDecoratorByName } from '../utils';
+import { CallExpression } from 'estree';
+
 export const message = {
     prefer: 'Prefer transform pipe `ParseIntPipe` in @Param decorator',
     transformed: 'Redundant coercing to number, parameter `{{name}}` must be a number',
 };
+
 export const parseIntPipe = {
     create(context): any {
         const parameters: Array<{ name: string, decorator: any }> = [];
@@ -44,13 +48,14 @@ export const parseIntPipe = {
 };
 
 function getDecorator(node) {
-    const decorator = (node.decorators || []).find(d => d.expression && d.expression.callee && d.expression.callee.name === 'Param');
+    // const decorator = (node.decorators || []).find(d => d.expression && d.expression.callee && d.expression.callee.name === 'Param');
+    const decorator = getDecoratorByName(node, 'Param');
     if (!decorator) {
         return;
     }
-    const [, expr] = decorator.expression.arguments;
+    const [, expr] = (decorator.expression as CallExpression).arguments;
     return {
-        transformed: Boolean(expr && expr.type === 'NewExpression' && expr.callee && expr.callee.name === 'ParseIntPipe'),
+        transformed: Boolean(expr && expr.type === 'NewExpression' && expr.callee && expr.callee.type === 'Identifier' && expr.callee.name === 'ParseIntPipe'),
     };
 }
 

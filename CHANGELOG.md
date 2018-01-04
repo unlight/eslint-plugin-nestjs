@@ -1,3 +1,16 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/unlight/eslint-plugin-nestjs/compare/v1.1.2...v1.2.0) (2018-01-04)
+
+
+### Bug Fixes
+
+* **utils:** Function to get decorator, introduced typings ([eaead48](https://github.com/unlight/eslint-plugin-nestjs/commit/eaead48))
+
+
+### Features
+
+* **use-validation-pipe:** New rule ([6c73462](https://github.com/unlight/eslint-plugin-nestjs/commit/6c73462))
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/unlight/eslint-plugin-nestjs/compare/v1.1.1...v1.1.2) (2017-12-31)
 

@@ -1,5 +1,5 @@
 # Enforce using `ParseIntPipe` transform pipe (parse-int-pipe)
-Built-in pipes can overtake the validation responsibility, since it's possible to throw an exception when the data isn't correct.
+Pipes can overtake the validation responsibility, since it's possible to throw an exception when the data isn't correct.
 
 ## Rule Details
 

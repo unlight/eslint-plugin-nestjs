@@ -31,7 +31,7 @@ export const useValidationPipe = {
                     return;
                 }
                 const { typeAnnotation } = param as any;
-                if (typeAnnotation && typeAnnotation.typeAnnotation && typeAnnotation.typeAnnotation.type === 'TSTypeReference') {
+                if (typeAnnotation && typeAnnotation.typeAnnotation && ['GenericTypeAnnotation', 'TSTypeReference'].includes(typeAnnotation.typeAnnotation.type)) {
                     context.report({ node: param, message });
                 }
             },

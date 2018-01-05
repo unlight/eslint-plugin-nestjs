@@ -1,3 +1,11 @@
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/unlight/eslint-plugin-nestjs/compare/v1.2.1...v1.2.2) (2018-01-05)
+
+
+### Bug Fixes
+
+* **use-validation-pipe:** Added case with GenericTypeAnnotation ([5c971ca](https://github.com/unlight/eslint-plugin-nestjs/commit/5c971ca))
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/unlight/eslint-plugin-nestjs/compare/v1.2.0...v1.2.1) (2018-01-04)
 

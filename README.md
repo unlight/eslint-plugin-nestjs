@@ -1,5 +1,7 @@
 # eslint-plugin-nestjs
-ESLint rules for [nestjs](https://github.com/nestjs/nest) framework
+ESLint rules for [nestjs](https://github.com/nestjs/nest) framework.
+
+This project is POC and is not under development. But will be if I will get nestjs project on my job.
 
 ## INSTALL
 ```
@@ -26,6 +28,7 @@ plugin:nestjs/recommended
 
 ## TODO
 * rule: inject @Res() but not using send or json
+* rule: if class decorated it must be exported
 
 ## USEFUL LINKS
 * https://astexplorer.net/

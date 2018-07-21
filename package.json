@@ -87,7 +87,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unlight/eslint-plugin-nestjs.git"
+    "url": "https://github.com/unlight/eslint-plugin-nestjs.git"
   },
   "bugs": {
     "url": "https://github.com/unlight/eslint-plugin-nestjs/issues"

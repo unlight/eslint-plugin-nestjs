@@ -1,7 +1,7 @@
 # eslint-plugin-nestjs
 ESLint rules for [nestjs](https://github.com/nestjs/nest) framework.
 
-This project is POC and is not under development. But will be if I will get nestjs project on my job.
+This project is POC and is not under development. But it will be, if I will get nestjs project on my job.
 
 ## INSTALL
 ```

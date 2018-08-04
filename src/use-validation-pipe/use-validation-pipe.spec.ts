@@ -23,5 +23,6 @@ ruleTester.run('use-validation-pipe', useValidationPipe, {
         { code: `@UsePipes(new ValidationPipe()) class { @Post() async create(@Body() createCatDto: CreateCatDto) { } }` },
         { code: `class { @Post() async create(@Body() createCatDto: any) { } }` },
         { code: `class { @Post() async create(@Body() createCatDto) { } }` },
+        { code: `@UsePipes(ValidationPipe) class { @Post() async create(@Body() createCatDto: CreateCatDto) { } }` },
     ],
 });

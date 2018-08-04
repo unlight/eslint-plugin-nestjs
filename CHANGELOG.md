@@ -1,3 +1,11 @@
+<a name="1.2.3"></a>
+## [1.2.3](https://github.com/unlight/eslint-plugin-nestjs/compare/v1.2.2...v1.2.3) (2018-08-04)
+
+
+### Bug Fixes
+
+* **use-validation-pipe:** fixed for nest 5.X ([d8848d3](https://github.com/unlight/eslint-plugin-nestjs/commit/d8848d3))
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/unlight/eslint-plugin-nestjs/compare/v1.2.1...v1.2.2) (2018-01-05)
 

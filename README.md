@@ -29,6 +29,7 @@ plugin:nestjs/recommended
 ## TODO
 * rule: inject @Res() but not using send or json
 * rule: if class decorated it must be exported
+* cqrs: commands which only trigger 1 command handler (for write), but events can multiple
 
 ## USEFUL LINKS
 * https://astexplorer.net/

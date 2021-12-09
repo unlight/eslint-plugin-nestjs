@@ -26,6 +26,9 @@ plugin:nestjs/recommended
 * [nestjs/use-dependency-injection](src/use-dependency-injection/use-dependency-injection.md) — Dependencies must be provided through a class constructor
 * [nestjs/use-validation-pipe](src/use-validation-pipe/use-validation-pipe.md) — Usage of `ValidationPipe` for `@Body` decorated parameters
 
+## SIMILAR PROJECTS
+- https://github.com/darraghoriordan/eslint-plugin-nestjs-typed
+
 ## TODO
 * rule: inject @Res() but not using send or json
 * rule: if class decorated it must be exported
